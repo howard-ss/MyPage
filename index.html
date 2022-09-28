@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css" />
+        <!--
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
+        -->
+        <script src="index.js"></script>
+        
+        <title>My page</title>
+    </head>
+    <body>
+                
+     <!--   <img src="profile photo.png"> -->
+
+    <!--1. Hamburger Menu project-->
+    
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">MyWebDev.</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Comments</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    <h4>Minimum Viable Product & User Stories</h4><br>
+    <p>As a <mark>[who]</mark> user, I can <mark>[what]</mark> click on a Hmaburger icon to toggle display a drop down menu of links, when a link is clicked the drop 
+       down menu hides itself again, so that<mark>[why]</mark> I can navigate the website efficiently.
+    </p>
+
+    </header> 
+
+    <!--above is Hamburger menu project-->
+    <br><br>
+    <!-- <header> -->
+    <img src="profile photo.png">
+        
+        <h1>Hi, my name is Howard</h1>
+
+        <!-- list of links to main website locations -->
+         <div>
+           <nav aria-label="Main Site Links.">
+          
+             <a href="#intro">Introduction</a>  |
+             <a href="#about">About</a> |
+             <a href="#video">Video</a> |
+             <a href="#comm">Comments</a> 
+           </nav>
+        </div>
+     
+    <!--</header> -->
+
+
+        <h2 id="intro">Introduction</h2><br>
+        <ul>
+           <li>I have background of accounting & travel agent, now I am persuing coding experiece in order to make a career change into the tech industry.</li>
+           <li>My strength is that I am always ready to tak up new challenge and strive for excellence.<br></li>
+           <li>I believe in myself and hard work and I want to fulfillment in everything.</li>
+        </ul>
+        <br><br>
+        <h2 id="about">Facts about me:</h2><br>
+        <ul>
+            <li>Live in London.</li>
+            <li>An <u>AAT</u> certified Accountant.</li>
+            <li>Junior Frontend Web Developer with <u>HTML, CSS and JavaScript</u>.</li>
+        </ul><br><br>
+        <p>Please connect with me on <a href="https://www.linkedin.com/in/howard-sun-74a72324b/" target="_blank"><u>LinkedIn here</u>.</a></p>
+        <input type="text" placeholder="Enter email...">
+        <button>Join newsletter</button>
+        
+        <div id="video">
+        <iframe allow=autoplay width="400" height="200" src="https://www.youtube.com/embed/a3ICNMQW7Ok?autoplay=1&mute=1"></iframe>
+        </div>
+
+    <!--CYF comments project-->
+ <div id="comm">
+       <input id="input-commenter-name" type="text" placeholder="Your name"/>
+       <input id="input-comment" type="text" placeholder="Your comment">
+       <button id="add-comment">Submit Comment</button>
+       <div id="error"></div>
+      <!-- <p>Comments:</p> -->
+      <h4>Minimum Viable Product & User Stories:</h4>
+       <p>As a <mark>[who]</mark> user , I can <mark>[what]</mark> add my name in another input box, so that<mark>[why]</mark> other users and webiste staff know who writes the comment</p>
+    <ul id="comments-list"></ul>
+ </div>
+  <!--
+  <script>
+    var inputComment, inputCommenterName;
+
+function getNumberOrString(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return value
+  } else {
+    return number_value
+  }
+}
+
+// Describe this function...
+function getInputs() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  inputComment = getNumberOrString(document.getElementById('input-comment').value);
+  inputCommenterName = getNumberOrString(document.getElementById('input-commenter-name').value);
+}
+
+// Describe this function...
+function renderComment() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let element_comments_list = document.getElementById('comments-list');
+  let new_li = document.createElement('li');
+  let new_span = document.createElement('span');
+  new_span.innerText = inputCommenterName;
+
+  new_li.appendChild(new_span);
+  let new_span2 = document.createElement('span');
+  new_span2.innerText = ':';
+
+  new_li.appendChild(new_span2);
+  let new_span3 = document.createElement('span');
+  new_span3.innerText = inputComment;
+
+  new_li.appendChild(new_span3);
+
+  element_comments_list.appendChild(new_li);
+}
+
+// Describe this function...
+function displayError() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let element_error = document.getElementById('error');
+  element_error.innerText = 'Error: Please enter a Name AND a Comment';
+  element_error.style.color = '#ff0000';
+}
+
+// Describe this function...
+function clearError() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let element_error2 = document.getElementById('error');
+  element_error2.replaceChildren();
+}
+
+
+
+document.getElementById('add-comment').addEventListener('click', (event) => {
+  clearError();
+  getInputs();
+  if (inputComment == '') {
+    displayError();
+  } else if (inputCommenterName == '') {
+    displayError();
+  } else {
+    renderComment();
+  }
+
+});
+
+    </script>
+-->
+
+<script>
+//hamburger menu project:
+//5. Add the JavaScript
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+//But there is a catch, the hamburger menu doesn't close when we click a link. So let's add that now:
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+hamburger.classList.remove("active");
+navMenu.classList.remove("active");
+}
+
+
+
+</script>
+
+
+
+
+ </body>
+</html>
